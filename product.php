@@ -42,3 +42,8 @@ if (isset($_GET['id'])) {
 </div>
 
 <?=template_footer()?>
+
+
+$test = "test";
+
+echo $test;
