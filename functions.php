@@ -17,11 +17,6 @@ function template_header($title) {
 
 
 
-if (isset($_SESSION['message'])) {
-    echo $_SESSION['message'];
-    unset($_SESSION['message']);
-}
-
 
 // Get the number of items in the shopping cart, which will be displayed in the header.
 $num_items_in_cart = isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0;
@@ -57,7 +52,7 @@ echo <<<EOT
         </main>
         <footer>
             <div class="content-wrapper">
-                <p>&copy; $year, Shopping Cart System</p>
+                <p>&copy; $year, Schloss&Riegel -- Schüler-Genossenschaft Schloss Gymnasium</p>
             </div>
         </footer>
     </body>
@@ -65,3 +60,30 @@ echo <<<EOT
 EOT;
 }
 ?>
+
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Shopping Cart System</title>
+        <link href="style.css" rel="stylesheet" type="text/css">
+
+    </head>
+<?php
+if (isset($_SESSION['message'])) {
+    echo '
+    <label>
+        <input type="checkbox" class="alertCheckbox" autocomplete="off" />
+        <div class="alert notice">
+            <span class="alertClose">X</span>
+            <span class="alertText">' . $_SESSION['message'] . '</span>
+        </div>
+    </label>';
+    unset($_SESSION['message']);
+}
+?>
+
+</html>

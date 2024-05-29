@@ -24,9 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
     if ($conn->query($sql) === TRUE) {
-        $_SESSION['message'] = "Record updated successfully";
+        $_SESSION['message'] = "Sie haben erfolgreich $increment Käsebrot(e) vorbestellt";
     } else {
-        $_SESSION['message'] = "Error updating record: " . $conn->error;
+        $_SESSION['message'] = "Es gab einen Fehler bei ihrer Vorbestellung, bitte kontaktieren Sie den Kiosk!" . $conn->error;
     }
 
     header('Location: ../index.php');

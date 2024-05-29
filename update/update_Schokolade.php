@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['message'] = "Sie haben erfolgreich $increment Schokolade vorbestellt";
 
     } else {
-        $_SESSION['message'] = "Error updating record: " . $conn->error;
+        $_SESSION['message'] = "Es gab einen Fehler bei ihrer Vorbestellung, bitte kontaktieren Sie den Kiosk!" . $conn->error;
     }
 
     header('Location: ../index.php');
