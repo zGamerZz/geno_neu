@@ -10,7 +10,8 @@ body {
 	position: relative;
 	min-height: 100%;
 	color: #555555;
-	background-color: #FFFFFF;
+
+	 background-color: #ffffff;
 	margin: 0;
 	padding-bottom: 100px; /* Same height as footer */
 }
@@ -124,20 +125,49 @@ main .recentlyadded h2 {
 	width: 100%;
 	border-bottom: 1px solid #EEEEEE;
 }
+
+
+
+
 main .recentlyadded .products, main .products .products-wrapper {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-between;
 	padding: 40px 0 0 0;
+
 }
-main .recentlyadded .products .product, main .products .products-wrapper .product {
+main123 .recentlyadded .products .product, main .products .products-wrapper .product {
 	display: block;
 	overflow: hidden;
 	text-decoration: none;
 	width: 25%;
 	padding-bottom: 60px;
+	padding-right: 50px;
 }
+
+main .recentlyadded .products .product, main .products .products-wrapper .product {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	text-decoration: none;
+	width: 25%;
+	padding-bottom: 60px;
+	/* border: 1px solid #393838; /* Rahmen hinzugefügt */
+	background-color: #fafafa; /* Hintergrundfarbe hinzugefügt */
+	box-shadow: 0 0 10px rgba(0,0,0,0.15); /* Schatten hinzugefügt */
+	border-radius: 10px; /* Ecken abgerundet */
+	transition: all 0.3s ease; /* Übergangseffekt hinzugefügt */
+	margin: 10px; /* Abstand hinzugefügt */
+	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25); /* Neuer Schatten hinzugefügt */
+}
+
+main .recentlyadded .products .product:hover, main .products .products-wrapper .product:hover {
+	box-shadow: 0 0 10px rgba(0,0,0,0.25); /* Schatten beim Überfahren mit der Maus verstärkt */
+}
+
 main .recentlyadded .products .product img, main .products .products-wrapper .product img {
 	transform: scale(1);
 	transition: transform 1s;
@@ -335,6 +365,20 @@ main .placeorder h1 {
 main .placeorder p {
 	text-align: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .alert {
