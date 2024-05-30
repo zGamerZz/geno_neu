@@ -22,45 +22,23 @@
         .error {
             color: red;
         }
-        .keypad {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-        }
-        .keypad button {
-            padding: 20px;
-            font-size: 18px;
-            border: none;
-            background-color: #e0e0e0;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .keypad button:active {
-            background-color: #c0c0c0;
-        }
-        #passwort {
-            display: none;
-        }
     </style>
 </head>
 <body>
 <div class="container">
+
+  <!--  ################################# Code ######################################## -->
     <?php
     // Definiere das 4-stellige Passwort
     $passwort = '1234';
 
     // Funktion zur Anzeige des Passwort-Formulars
     function zeige_passwort_formular($fehlermeldung = '') {
-        echo '<form method="post" id="passwortForm">';
+        echo '<form method="post">';
         if ($fehlermeldung != '') {
             echo '<p class="error">' . $fehlermeldung . '</p>';
         }
-        echo '<input type="hidden" name="passwort" id="passwort" />';
-        echo '<div class="keypad">';
-        for ($i = 1; $i <= 9; $i++) {
-            echo '<button type="button" onclick="appendNumber(' . $i . ')">' . $i . '</button>';
-        }
-        echo '</div>';
+        echo 'Passwort: <input type="number" name="passwort" min="1000" max="9999" required />';
         echo '<input type="submit" value="Login" />';
         echo '</form>';
     }
@@ -111,32 +89,21 @@
                     echo "Schokobrötchen: " . $row["Schokobrot"]. "<br>";
                     echo "Starterpack" . $row["Starterpack"]. "<br>";
                     echo "StarterpackPremium: " . $row["StarterpackPremium"]. "<br>";
+
                 }
             } else {
-                echo "0 results";
+                echo "Keine Vorbestellungen vorhanden.";
             }
+            //  ################################# Code ########################################
 
-
-
-
-            $conn->close();
         } else {
             // Zeige das Passwort-Formular
             zeige_passwort_formular();
         }
     }
+
+    $conn->close();
     ?>
 </div>
-<script>
-    let passwort = '';
-
-    function appendNumber(number) {
-        passwort += number;
-        document.getElementById('passwort').value = passwort;
-        if (passwort.length === 4) {
-            document.getElementById('passwortForm').submit();
-        }
-    }
-</script>
 </body>
 </html>

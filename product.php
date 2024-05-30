@@ -43,7 +43,3 @@ if (isset($_GET['id'])) {
 
 <?=template_footer()?>
 
-
-$test = "test";
-
-echo $test;
