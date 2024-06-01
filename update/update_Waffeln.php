@@ -1,4 +1,16 @@
 <?php
+// We need to use sessions, so you should always start sessions using the below code.
+session_start();
+// If the user is not logged in redirect to the login page...
+if (!isset($_SESSION['loggedin'])) {
+    echo 'Bitte zuerst <a href="login-register/login.php">einloggen</a>. Du wirst in 5 Sekunden zum Login weitergeleitet.';
+    sleep(5);
+    header('Location: ../login-register/index.html');
+    exit;
+}
+?>
+
+<?php
 session_start();
 
 $servername = "localhost";

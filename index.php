@@ -1,3 +1,5 @@
+
+
 <?php
 session_start();
 // Include functions and connect to the database using PDO MySQL
