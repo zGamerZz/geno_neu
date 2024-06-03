@@ -36,3 +36,13 @@ $recently_added_products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </div>
 
 <?=template_footer()?>
+
+
+<?php
+
+if (isset($_SESSION['message'])) {
+    echo $_SESSION['message'];
+    // Nach dem Anzeigen der Nachricht, löschen Sie sie.
+    unset($_SESSION['message']);
+}
+?>

@@ -37,7 +37,7 @@ echo <<<EOT
 	<body>
         <header>
             <div class="content-wrapper">
-                <h1>Shopping Cart System</h1>
+                <h1>Schloss & Riegel</h1>
                 <nav>
                     <a href="index.php">Home</a>
                     <a href="index.php?page=products">Products</a>
@@ -56,7 +56,7 @@ echo <<<EOT
         </main>
         <footer>
             <div class="content-wrapper">
-                <p>&copy; $year, Schloss&Riegel -- Schüler-Genossenschaft Schloss Gymnasium</p>
+                <p>&copy; $year, Schloss & Riegel -- Schüler-Genossenschaft Schloss Gymnasium</p>
             </div>
         </footer>
     </body>
@@ -72,7 +72,7 @@ EOT;
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Shopping Cart System</title>
+        <title>Schloss & Riegel</title>
         <link href="style.css" rel="stylesheet" type="text/css">
 
     </head>

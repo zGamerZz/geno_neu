@@ -1,5 +1,4 @@
 <?php
-
 // Change this to your connection info.
 $DATABASE_HOST = 'localhost';
 $DATABASE_USER = 'root';
@@ -11,8 +10,6 @@ if (mysqli_connect_errno()) {
     // If there is an error with the connection, stop the script and display the error.
     exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
-
-
 
 
 // Now we check if the data was submitted, isset() function will check if the data exists.
@@ -35,7 +32,7 @@ if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?'
     // Store the result so we can check if the account exists in the database.
     if ($stmt->num_rows > 0) {
         // Username already exists
-        $_SESSION['message'] ='Der Benutzername existiert bereits, bitte wähle einen anderen.';
+        echo 'Username exists, please choose another!';
     } else {
         // Username doesn't exists, insert new account
         if ($stmt = $con->prepare('INSERT INTO accounts (username, password, email) VALUES (?, ?, ?)')) {
@@ -43,19 +40,19 @@ if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?'
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
             $stmt->bind_param('sss', $_POST['username'], $password, $_POST['email']);
             $stmt->execute();
-            echo 'Du, hast dich erfolgreich registriert, und wirst in 5 Sekunden weitergeleitet';
-            sleep(5);
-            header('Location: login.php');
-
+            $_SESSION['message'] = 'Registrierung erfolgreich, bitte logge dich ein!';
+            header('Location: index.html');
         } else {
             // Something is wrong with the SQL statement, so you must check to make sure your accounts table exists with all three fields.
-            echo 'Etwas ist schief gelaufen, bitte versuche es erneut.';
+            echo 'Could not prepare statement!';
         }
     }
     $stmt->close();
 } else {
     // Something is wrong with the SQL statement, so you must check to make sure your accounts table exists with all 3 fields.
-    echo 'Etwas ist schief gelaufen, bitte versuche es erneut.';
+    echo 'Could not prepare statement!';
 }
 $con->close();
 ?>
+
+
